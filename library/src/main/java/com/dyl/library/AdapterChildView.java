@@ -18,6 +18,6 @@ public @interface AdapterChildView {
     /**
      * 属于哪个view 从0开始 顺序为view加载顺序
      * */
-    int[] type() default {};
+    int[] type() default {0};
 
 }

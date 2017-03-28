@@ -1,8 +1,29 @@
 # AnnotationAdapter
 一个基于注解的Adapter 灵活适配ListView GridView RecylerView
 <p>内部已实现View的复用优化 无需编写多余重复的代码</p>
+<h3>单个Item布局</h3>
 <h4>继承ListAdapter或RecyclerViewAdapter</h4>
 <h4>重写构造方法和initView方法</h4>
+<pre>
+<code>
+@AdapterContentView(android.R.layout.simple_list_item_1)
+public class TestAdapter extends ListAdapter {
+    @AdapterChildView(android.R.id.text1)
+    private TextView tv;
+
+    public TestAdapter(Context context, List<String> list) {
+        super(context, list);
+    }
+
+    @Override
+    public void initView(View v, int position, int type) {
+        String name = (String) getData(position);
+        tv.setText(name);
+    }
+}
+</code>
+</pre>
+<h3>多种Item布局</h3>
 <p>AdapterContentView注解的value可以接受多个布局，一个布局为一个类别，每个布局会拥有一个type值，默认从0开始</p>
 <p>AdapterChildView注解的value表示控件ID，type表示传入布局的下标值，用于确定该控件属于哪个布局，可传入多个</p>
 <p>initView方法会在滑动时被调用 有注解的控件会在initView方法执行前被赋值 </p>

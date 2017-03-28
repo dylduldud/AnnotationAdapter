@@ -20,11 +20,14 @@ public class MainActivity extends AppCompatActivity {
             list.add("data:"+i);
         }
         ListView lv= (ListView) findViewById(R.id.lv);
-        RecyclerView rv= (RecyclerView) findViewById(R.id.rv);
+        TestAdapter testAdapter=new TestAdapter(this,list);
+        lv.setAdapter(testAdapter);
         //
 //        ContrastTestAdapter ada=new ContrastTestAdapter(this,list);
-        ListViewAdapter adapter=new ListViewAdapter(this,list);
-        lv.setAdapter(adapter);
+
+
+        RecyclerView rv= (RecyclerView) findViewById(R.id.rv);
+        TestTypeAdapter adapter=new TestTypeAdapter(this,list);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter.convertAdapter());
 

@@ -15,12 +15,12 @@ import java.util.List;
  */
 
 @AdapterContentView(value={android.R.layout.simple_list_item_1,R.layout.toast_view,R.layout.toast_view1})
-public class ListViewAdapter extends ListAdapter {
+public class TestTypeAdapter extends ListAdapter {
     @AdapterChildView(value =android.R.id.text1,type = {0})
     private TextView tv;
     @AdapterChildView(value =R.id.message,type = {1,2})
     private TextView message;
-    public ListViewAdapter(Context context, List<String> list) {
+    public TestTypeAdapter(Context context, List<String> list) {
         super(context, list);
     }
 
